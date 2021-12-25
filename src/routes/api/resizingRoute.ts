@@ -6,7 +6,7 @@ import resizeImage from '../../functionality/resizeFunc'
 const resizingRoute = express.Router()
 
 // resizing endpoint
-resizingRoute.get('/', async (req: express.Request, res: express.Response) => {
+resizingRoute.get('/', async (req: express.Request, res: express.Response): Promise<void> => {
   // query string data
   const queryName = String(req.query.name)
   const queryWidth = Number(req.query.width)
@@ -33,19 +33,13 @@ resizingRoute.get('/', async (req: express.Request, res: express.Response) => {
       )
     } else {
       console.log('Error, Entered Width and Height are not Valid values')
-      return res
-        .status(404)
-        .send(
-          '<h1>Error, Please enter a Valid image Width and Height</h1><a href="/home-page">Home Page for more info</a>'
-        )
+      res.status(404).send('<h1>Error, Please enter a Valid image Width and Height</h1><a href="/home-page">Home Page for more info</a>')
+      return
     }
   } else {
     console.log('Error, Entered Name is not Valid')
-    return res
-      .status(404)
-      .send(
-        '<h1>Error, Please enter a Valid image name</h1><a href="/home-page">Home Page for more info</a>'
-      )
+    res.status(404).send('<h1>Error, Please enter a Valid image name</h1><a href="/home-page">Home Page for more info</a>')
+    return
   }
 
   // check if requested image is already existing
@@ -58,7 +52,8 @@ resizingRoute.get('/', async (req: express.Request, res: express.Response) => {
         err,
         'ERROR LOCATION: app.ts, Error retrieving already existing resized image'
       )
-      return res.status(500)
+      res.status(500)
+      return
     }
   } else {
     // if not then resize and send back
@@ -75,7 +70,8 @@ resizingRoute.get('/', async (req: express.Request, res: express.Response) => {
         err,
         'ERROR LOCATION: app.ts, Error calling the resizeImage method'
       )
-      return res.status(500)
+      res.status(500)
+      return 
     }
   }
 })

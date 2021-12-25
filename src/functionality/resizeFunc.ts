@@ -6,7 +6,7 @@ const resizeImage = async (
   height: number,
   originalImagePath: string,
   resizedImagePath: string
-) => {
+): Promise<string> => {
   try {
     const processedImage = sharp(originalImagePath).resize({
       width: width,
@@ -18,10 +18,7 @@ const resizeImage = async (
     // console.log('debugging','typeof:',typeof resizedImagePath, resizedImagePath); // Debugging
     return resizedImagePath
   } catch (err) {
-    console.error(
-      'ERROR LOCACATION: resizeFunc Module, error resizing the image'
-    )
-    // return 'ERROR Resizing your image';
+    console.error('ERROR LOCACATION: resizeFunc Module.')
     return `ERROR Resizing your image, ${err}`
   }
 }

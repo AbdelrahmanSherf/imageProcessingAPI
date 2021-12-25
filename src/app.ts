@@ -5,7 +5,7 @@ const app: Application = express()
 const port = 3000
 
 // Home page route
-app.get('/home-page', (req: express.Request, res: express.Response) => {
+app.get('/home-page', (req: express.Request, res: express.Response): void => {
   res
     .status(200)
     .send(
@@ -17,7 +17,7 @@ app.get('/home-page', (req: express.Request, res: express.Response) => {
 app.use('/api', routes)
 
 // start the Express server
-app.listen(port, () => {
+app.listen(port, (): void => {
   console.log(`server running on port: http://localhost:${port}`)
 })
 

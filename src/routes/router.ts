@@ -4,7 +4,7 @@ import resizingRoute from './api/resizingRoute'
 const routes = express.Router()
 
 // API main route
-routes.get('/', (req: express.Request, res: express.Response) => {
+routes.get('/', (req: express.Request, res: express.Response): void => {
   res
     .status(200)
     .send(
