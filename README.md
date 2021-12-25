@@ -34,31 +34,6 @@ LICENSE.txt
 README.md 
 ```
 
-## Getting Started
-1. TypeScript
-``` npm install --save-dev typescript ts-node ``` 
-
-2. express and type express
-``` npm install express ```
-``` npm install --save-dev @types/express ```
-
-3. nodemon
-``` npm install --save-dev nodemon ``` 
-
-5. eslint
-``` npx eslint --init ```
-
-6. prettier
-``` npm install --save-dev prettier ```
-
-9. SuperTest and type supertest
-``` npm install --save-dev supertest ```
-``` npm install --save-dev @types/supertest ```
-
-11. sharp and type sharp
-``` npm install sharp ```
-``` npm install @types/sharp ```
-
 # Initialize The project
 ## start the server
 1. Install all dependencies
@@ -69,7 +44,7 @@ README.md
 
 3. Start the Server
 ``` npm start ```
-## The server will start on port: 3000, and the default host is on: http://localhost:5000.
+## The server will start on port: 3000, and the default host is on: http://localhost:3000.
 
 4. Run the Tests
 ``` npm run test ```
@@ -83,7 +58,7 @@ README.md
 ``` http://localhost:3000/home-page ```
 
 2. Resizing Endpoint
-```  api/image/resize?name={image-name}width=<image-width>&height=<image-height> ```
+``` /api/image/resize?name={image-name}width=<image-width>&height=<image-height> ```
 
 3. API main Endpoint 
 ``` /api ```
